@@ -63,7 +63,7 @@ public class ObjectManager implements ActionListener {
 				rocket.isActive = false;
 				aliens.get(i).isActive = false;
 			}
-			for (int j = 0; i < projectiles.size(); i++) {
+			for (int j = 0; j < projectiles.size(); j++) {
 				if (projectiles.get(j).collisionBox.intersects(aliens.get(i).collisionBox)) {
 					projectiles.get(j).isActive = false;
 					aliens.get(i).isActive = false;

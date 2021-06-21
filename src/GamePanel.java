@@ -54,7 +54,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState() {
 		objectManager.update();
 		if (!rocketship.isActive) {
-			currentState=END;
+			currentState = END;
 		}
 	}
 
@@ -123,12 +123,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (currentState == END) {
 				currentState = MENU;
-			} else {
-				currentState++;
+			} else if (currentState == MENU) {
+				currentState = GAME;
+				startGame();
+			}
+
+			else {
+				currentState = END;
 			}
 		}
 		if (currentState == GAME) {
-			startGame();
+			
 			if (e.getKeyCode() == KeyEvent.VK_UP && rocketship.y > 0) {
 				rocketship.up();
 			}
